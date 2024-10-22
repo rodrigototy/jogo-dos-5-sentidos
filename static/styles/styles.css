@@ -88,8 +88,16 @@ h2 {
 
 .card-front img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 200px; /* Limite máximo para a altura da imagem */
+    object-fit: contain; /* Garante que a imagem seja redimensionada sem ser cortada */
+}
+
+.card-front h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
 }
 
 .card-back {

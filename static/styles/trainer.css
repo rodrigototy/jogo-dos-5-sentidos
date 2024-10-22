@@ -1,0 +1,100 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto e a imagem */
+    justify-content: center; /* Centraliza o conteúdo no meio da tela */
+    text-align: center;
+    margin: 20px 0;
+}
+
+.title-container img {
+    margin-right: 50px; /* Espaçamento entre a imagem e o texto */
+}
+
+.title-container h1 {
+    margin: 0px; /* Espaçamento entre a imagem e o texto */
+}
+
+/* Game Container */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Placar das equipes (Coluna Esquerda) */
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-right: 40px;
+}
+
+.team-card {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-card h2 {
+    margin-bottom: 10px;
+}
+
+.points {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Contador (Coluna Central) */
+.timer-card {
+    flex: 1;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.timer-card h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.timer-card button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+/* QR Code (Coluna Direita) */
+.qrcode {
+    margin-left: 40px;
+}
+
+.qrcode img {
+    border: 2px solid #333;
+    border-radius: 10px;
+}

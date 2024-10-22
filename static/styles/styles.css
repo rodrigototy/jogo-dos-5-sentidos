@@ -18,8 +18,24 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    font-size: 28px;
+    font-size: 36px;
     color: #333;
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o texto e a imagem */
+    justify-content: center; /* Centraliza o conteúdo no meio da tela */
+    text-align: center;
+    margin: 20px 0;
+}
+
+.title-container img {
+    margin-right: 50px; /* Espaçamento entre a imagem e o texto */
+}
+
+.title-container h1 {
+    margin: 0px; /* Espaçamento entre a imagem e o texto */
 }
 
 .introduction, .instructions {
@@ -147,4 +163,33 @@ h2 {
     font-size: 20px;
     color: #333;
     text-align: center;
+}
+
+/* Estilos para dispositivos mobile */
+@media (max-width: 768px) {
+
+    .group h2 {
+        font-size: 28px;
+    }
+
+    .title-container {
+        flex-direction: column;
+    }
+
+    .title-container img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .title-container h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    /* Adiciona quebra de linha para mobile */
+    .mobile-title {
+        display: block; /* Torna o texto visível e força a quebra */
+        margin-top: 5px; /* Adiciona um pouco de espaço acima, se necessário */
+    }
+
 }

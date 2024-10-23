@@ -29,6 +29,17 @@ h1 {
   margin: 0px; /* Espaçamento entre a imagem e o texto */
 }
 
+.container {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 80%;
+  justify-self: center;
+}
+
 /* Game Container */
 .game-container {
   display: flex;
@@ -37,6 +48,7 @@ h1 {
   margin: 20px auto;
   width: 90%;
   max-width: 1200px;
+  gap: 50px;
 }
 
 /* Placar das equipes (Coluna Esquerda) */
@@ -84,7 +96,10 @@ button {
 button:hover {
   background-color: #45a049;
 }
-
+.team-card > button {
+    font-size: 24px;
+    padding: 10px 20px;
+}
 /* Contador (Coluna Central) */
 .timer-card {
   flex: 1;

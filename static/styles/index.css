@@ -1,0 +1,54 @@
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+  
+  /* Título e container de imagem */
+  .title-container h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  /* Título exibido em dispositivos móveis */
+  .mobile-title {
+    display: none;
+  }
+  
+  /* Estilos dos grupos de cards */
+  .group {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 10px;
+    width: 70%;
+    padding: 20px 0 40px 0;
+  }
+  
+  .group h2 {
+    font-size: 36px;
+  }
+  
+  /* Container de cards */
+  .card-container {
+    gap: 100px;
+  }
+  
+  /* Estilo de cada card */
+  .card:hover .card-inner {
+    transform: scale(1.1);
+  }
+  
+  /* Links dos cards */
+  .card a {
+    text-decoration: none;
+    color: #4caf50;
+  }
+  
+  .card h3 {
+    margin-bottom: 20px;
+    font-size: x-large;
+    text-align: center;
+  }
+  

@@ -17,45 +17,57 @@
     </header>
 
     <div class="game-container">
-        <!-- Placar das equipes (Coluna Esquerda) -->
-        <div class="scoreboard">
-            <div class="team-card" style="background-color: #FFDD57;">
-                <h2>Vitaminados</h2>
-                <p class="points" id="team1-points">0</p>
-                <button onclick="decrementScore('team1-points')">-</button>
-                <button onclick="incrementScore('team1-points')">+</button>
-            </div>
-            <div class="team-card" style="background-color: #57FF57;">
-                <h2>Sabores da Natureza</h2>
-                <p class="points" id="team2-points">0</p>
-                <button onclick="decrementScore('team2-points')">-</button>
-                <button onclick="incrementScore('team2-points')">+</button>
-            </div>
-            <div class="team-card" style="background-color: #57D3FF;">
-                <h2>Super Nutri</h2>
-                <p class="points" id="team3-points">0</p>
-                <button onclick="decrementScore('team3-points')">-</button>
-                <button onclick="incrementScore('team3-points')">+</button>
-            </div>
-            <div class="team-card" style="background-color: #FF5757;">
-                <h2>Energia Verde</h2>
-                <p class="points" id="team4-points">0</p>
-                <button onclick="decrementScore('team4-points')">-</button>
-                <button onclick="incrementScore('team4-points')">+</button>
+        <div class="counter">
+            <h2>Placar das Equipes</h2>
+            <!-- Placar das equipes (Coluna Esquerda) -->
+            <div class="scoreboard">
+                <div class="team-card" style="background-color: #FFDD57;">
+                    <h2>Sabores da Natureza</h2>
+                    <p class="points" id="team1-points">0</p>
+                    <button onclick="decrementScore('team1-points')">-</button>
+                    <button onclick="incrementScore('team1-points')">+</button>
+                </div>
+                <div class="team-card" style="background-color: #57FF57;">
+                    <h2>Energia Verde</h2>
+                    <p class="points" id="team2-points">0</p>
+                    <button onclick="decrementScore('team2-points')">-</button>
+                    <button onclick="incrementScore('team2-points')">+</button>
+                </div>
+                <div class="team-card" style="background-color: #57D3FF;">
+                    <h2>Super Nutritivos</h2>
+                    <p class="points" id="team3-points">0</p>
+                    <button onclick="decrementScore('team3-points')">-</button>
+                    <button onclick="incrementScore('team3-points')">+</button>
+                </div>
+                <div class="team-card" style="background-color: #FF5757;">
+                    <h2>Vitaminados</h2>
+                    <p class="points" id="team4-points">0</p>
+                    <button onclick="decrementScore('team4-points')">-</button>
+                    <button onclick="incrementScore('team4-points')">+</button>
+                </div>
             </div>
         </div>
 
-        <!-- Contador (Coluna Central) -->
-        <div class="timer-card">
-            <h2 id="timer">20</h2>
-            <button onclick="resetTimer()">Resetar</button>
-            <button onclick="startTimer()">Iniciar</button>
-        </div>
+        <div class="counter">
+            <h2>Tempo para Resposta</h2>
+            <!-- Contador (Coluna Central) -->
+            <div class="timer-card">
+                <p class="timer-message" id="timer">Pressione Iniciar</p>
+                <button onclick="resetTimer()">Resetar</button>
+                <button onclick="startTimer()">Iniciar</button>
+            </div>
 
-        <!-- QR-Code (Coluna Direita) -->
-        <div class="qrcode">
-            <img src="../static/img/qrcode.png" alt="QR Code" width="200">
+            <!-- QR-Code (Coluna Direita) -->
+            <div class="qrcode">
+                <img src="../static/img/qrcode.png" alt="QR Code" width="200">
+            </div>
         </div>
+    </div>
+    <div class="game-container">
+        <p class="equipes"><b>Equipe Sabores da Natureza:</b> Celebrando os diferentes sabores e aromas naturais dos alimentos.</p>
+        <p class="equipes"><b>Equipe Energia Verde:</b> Associada à saúde e sustentabilidade, com foco em alimentos naturais e energéticos.</p>
+        <p class="equipes"><b>Equipe Super Nutritivos:</b> Inspirada nos benefícios nutritivos de cada alimento.</p>
+        <p class="equipes"><b>Equipe Vitaminados:</b> Focando nas vitaminas presentes nas frutas e legumes.</p>
     </div>
 </body>
 </html>

@@ -89,12 +89,50 @@ button {
     font-size: 18px;
 }
 
+.counter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.counter > h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.timer-start {
+    color: black;
+    font-size: 72px;
+    margin: 10px 0;
+}
+
+.timer-final {
+    color: red;
+    font-size: 72px;
+    margin: 10px 0;
+}
+
+.timer-message {
+    color: blue;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
 /* QR Code (Coluna Direita) */
 .qrcode {
-    margin-left: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .qrcode img {
     border: 2px solid #333;
     border-radius: 10px;
+}
+
+.equipes {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 50px;
+    font: medium;
 }

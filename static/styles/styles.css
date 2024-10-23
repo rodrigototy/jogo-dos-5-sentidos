@@ -1,3 +1,4 @@
+/* Reseta margens e configurações básicas */
 * {
   margin: 0;
   padding: 0;
@@ -5,39 +6,43 @@
   font-family: Arial, sans-serif;
 }
 
+/* Estilos para o corpo da página */
 body {
   background-color: #f5f5f5;
   padding: 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 36px;
-  color: #333;
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Estilos para o título */
 .title-container {
   display: flex;
-  align-items: center; /* Centraliza verticalmente o texto e a imagem */
-  justify-content: center; /* Centraliza o conteúdo no meio da tela */
+  align-items: center;
+  justify-content: center;
   text-align: center;
   margin: 20px 0;
 }
 
 .title-container img {
-  margin-right: 50px; /* Espaçamento entre a imagem e o texto */
+  margin-right: 50px;
 }
 
 .title-container h1 {
-  margin: 0px; /* Espaçamento entre a imagem e o texto */
+  font-size: 36px;
+  color: #333;
+  margin: 0;
 }
 
+.mobile-title {
+  display: none; /* Será mostrado em dispositivos móveis */
+}
+
+/* Introdução */
 .introduction,
 .instructions {
   margin-bottom: 20px;
@@ -59,32 +64,24 @@ h1 {
   margin-bottom: 40px;
 }
 
-h1 img {
-  vertical-align: middle; /* Alinha o ícone ao texto */
-  margin-right: 50px; /* Espaçamento entre o ícone e o texto */
-}
-
-h2 {
-  margin-bottom: 10px;
-  color: #4caf50;
-}
-
+/* Estilo dos grupos de cards */
 .group {
-  border: 2px solid #4caf50; /* Borda verde para separar os grupos */
+  border: 2px solid #4caf50; 
   padding: 20px;
-  margin: 20px 0; /* Espaçamento entre os grupos */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombras para destaque */
-  background-color: #f9f9f9; /* Cor de fundo suave */
+  margin: 20px 0; 
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
+  background-color: #f9f9f9;
 }
 
 .group h2 {
-  text-align: center; /* Centraliza o título do grupo */
+  text-align: center;
   font-size: 36px;
   color: #4caf50;
   margin-bottom: 15px;
 }
 
+/* Container de cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +90,7 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Estilo do card individual */
 .card {
   width: 200px;
   height: 300px;
@@ -111,6 +109,7 @@ h2 {
   transform: rotateY(180deg);
 }
 
+/* Face da frente do card */
 .card-front,
 .card-back {
   position: absolute;
@@ -133,8 +132,8 @@ h2 {
 .card-front img {
   width: 100%;
   height: auto;
-  max-height: 200px; /* Limite máximo para a altura da imagem */
-  object-fit: contain; /* Garante que a imagem seja redimensionada sem ser cortada */
+  max-height: 200px;
+  object-fit: contain; 
 }
 
 .card-front h3 {
@@ -144,6 +143,7 @@ h2 {
   text-align: center;
 }
 
+/* Face de trás do card */
 .card-back {
   background-color: #ffeb3b;
   transform: rotateY(180deg);
@@ -167,7 +167,7 @@ h2 {
   text-align: center;
 }
 
-/* Estilos para dispositivos mobile */
+/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
   .group h2 {
     font-size: 28px;
@@ -187,9 +187,8 @@ h2 {
     line-height: 1.3;
   }
 
-  /* Adiciona quebra de linha para mobile */
   .mobile-title {
-    display: block; /* Torna o texto visível e força a quebra */
-    margin-top: 5px; /* Adiciona um pouco de espaço acima, se necessário */
+    display: block;
+    margin-top: 5px;
   }
 }

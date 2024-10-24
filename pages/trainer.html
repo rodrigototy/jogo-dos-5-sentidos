@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5 Sentidos - Organizador</title>
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/styles/reset.css" />
     <link rel="stylesheet" href="../static/styles/trainer.css" />
     <script src="../static/js/trainer.js" defer></script>
   </head>
@@ -59,8 +60,10 @@
           <h2>Tempo para Resposta</h2>
           <div class="timer-card">
             <p class="timer-message" id="timer">Pressione Iniciar</p>
-            <button onclick="resetTimer()">Resetar</button>
-            <button onclick="startTimer()">Iniciar</button>
+            <button id="resetButton" onclick="resetTimer()" disabled>
+              Resetar
+            </button>
+            <button id="startButton" onclick="startTimer()">Iniciar</button>
           </div>
 
           <div class="qrcode">

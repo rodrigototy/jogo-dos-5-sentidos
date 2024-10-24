@@ -1,3 +1,5 @@
+/* trainer.css */
+
 /* Estilo geral */
 body {
   font-family: Arial, sans-serif;
@@ -74,6 +76,7 @@ h1 {
 
 .team-card h2 {
   margin-bottom: 10px;
+  font-size: x-large;
 }
 
 .points {
@@ -152,6 +155,13 @@ button:hover {
 .timer-message {
   color: blue;
   font-size: 36px;
+  margin: 10px 0;
+}
+
+.timer-alert {
+  background-color: yellow;
+  color: red;
+  font-size: xx-large;
   margin: 10px 0;
 }
 

@@ -99,10 +99,16 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
 .team-card > button {
-    font-size: 24px;
-    padding: 10px 20px;
+  font-size: 24px;
+  padding: 10px 20px;
 }
+
+.button-score{
+  
+}
+
 /* Contador (Coluna Central) */
 .timer-card {
   flex: 1;
@@ -159,10 +165,13 @@ button:hover {
 }
 
 .timer-alert {
-  background-color: yellow;
   color: red;
   font-size: xx-large;
   margin: 10px 0;
+}
+
+.timer-back-alert {
+  background-color: yellow;
 }
 
 /* QR Code (Coluna Direita) */

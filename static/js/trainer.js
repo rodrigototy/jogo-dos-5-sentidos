@@ -1,3 +1,19 @@
+// Controle do Timer
+const timerText = document.getElementById("timer-message");
+const timerCard = document.getElementById("timer-card");
+const startButton = document.getElementById("startButton");
+const resetButton = document.getElementById("resetButton");
+
+const alarmSound = new Audio("../static/audio/sirene.mp3"); // Arquivo de áudio do alarme
+const startTimerSound = new Audio("../static/audio/20-seconds.mp3"); // Arquivo de áudio do alarme
+const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo de áudio da contagem regressiva
+const constTimeStartGame = 30;
+const constTimeLeft = 20;
+const constMessageReady = "Você está Preparado?";
+let startGame;
+let timeStartGame;
+let timeLeft;
+
 // Controle do placar
 function incrementScore(teamId) {
   let pointsElement = document.getElementById(teamId);
@@ -15,17 +31,6 @@ function decrementScore(teamId) {
   }
 }
 
-// Controle do Timer
-const alarmSound = new Audio("../static/audio/sirene.mp3"); // Arquivo de áudio do alarme
-const startTimerSound = new Audio("../static/audio/20-seconds.mp3"); // Arquivo de áudio do alarme
-const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo de áudio da contagem regressiva
-const constTimeStartGame = 30;
-const constTimeLeft = 20;
-const constMessageReady = "Você está Preparado?";
-let startGame;
-let timeStartGame;
-let timeLeft;
-
 function startTimer() {
   let playAlarmSound;
 
@@ -34,28 +39,28 @@ function startTimer() {
   timeLeft = constTimeLeft;
 
   // Desabilitar o botão Iniciar e habilitar o botão Resetar
-  document.getElementById("startButton").disabled = true;
-  document.getElementById("resetButton").disabled = false;
-
+  startButton.disabled = true;
+  resetButton.disabled = false;
+  //Inicializa o tempotizador
+  timerText.innerText = constMessageReady;
   startTimerSound.play();
-  document.getElementById("timer").innerText = constMessageReady;
 
   // Iniciar contagem regressiva para o início do jogo
   startGame = setInterval(function () {
     timeStartGame--;
 
     if (timeStartGame <= 27) {
-      document.getElementById("timer").innerText = `${timeLeft}s`;
-      document.getElementById("timer").classList.remove("timer-final");
-      document.getElementById("timer").classList.remove("timer-message");
-      document.getElementById("timer").classList.remove("timer-alert");
-      document.getElementById("timer").classList.add("timer-start");
+        timerText.innerText = `${timeLeft}s`;
+        timerText.classList.remove("timer-final");
+        timerText.classList.remove("timer-message");
+        timerText.classList.remove("timer-alert");
+        timerText.classList.add("timer-start");
     }
 
     if (timeStartGame <= 26) {
       // Iniciar o countdown após timeStartGame acabar
       timeLeft--;
-      document.getElementById("timer").innerText = `${timeLeft}s`;
+      timerText.innerText = `${timeLeft}s`;
 
       if (timeStartGame <= 19) {
         countdownSound.play();
@@ -67,8 +72,9 @@ function startTimer() {
       }
 
       if (timeStartGame <= 17) {
-        document.getElementById("timer").classList.remove("timer-start");
-        document.getElementById("timer").classList.add("timer-final");
+        timerText.classList.remove("timer-start");
+        timerText.classList.add("timer-final");
+        timerCard.classList.add("timer-back-alert")
       }
 
       if (timeStartGame <= 7) {
@@ -77,9 +83,9 @@ function startTimer() {
         // Tocar o som quando o tempo acabar
         playAlarmSound = alarmSound.play();
 
-        document.getElementById("timer").classList.remove("timer-final");
-        document.getElementById("timer").classList.add("timer-alert");
-        document.getElementById("timer").innerText = "Fale Agora!";
+        timerText.classList.remove("timer-final");
+        timerText.classList.add("timer-alert");
+        timerText.innerText = "Fale Agora!";
       }
 
       if (timeStartGame <= 4) {
@@ -109,11 +115,12 @@ function resetTimer() {
   timeStartGame = constTimeStartGame;
   timeLeft = constTimeLeft;
 
-  document.getElementById("timer").classList.remove("timer-final");
-  document.getElementById("timer").classList.remove("timer-start");
-  document.getElementById("timer").classList.remove("timer-alert");
-  document.getElementById("timer").classList.add("timer-message");
-  document.getElementById("timer").innerText = "Pressione Iniciar";
+  timerCard.classList.remove("timer-back-alert");
+  timerText.classList.remove("timer-final");
+  timerText.classList.remove("timer-start");
+  timerText.classList.remove("timer-alert");
+  timerText.classList.add("timer-message");
+  timerText.innerText = "Pressione Iniciar";
   // Parar o som se estiver tocando
   alarmSound.pause();
   alarmSound.currentTime = 0; // Reiniciar o som
@@ -122,6 +129,6 @@ function resetTimer() {
   startTimerSound.pause();
   startTimerSound.currentTime = 0; // Reiniciar o som
   // Habilitar o botão Iniciar e desabilitar o botão Resetar
-  document.getElementById("startButton").disabled = false;
-  document.getElementById("resetButton").disabled = true;
+  startButton.disabled = false;
+  resetButton.disabled = true;
 }

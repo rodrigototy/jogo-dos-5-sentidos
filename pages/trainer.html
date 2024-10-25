@@ -33,32 +33,50 @@
             <div class="team-card" id="team1" style="background-color: #ffdd57">
               <h2>Sabores da Natureza</h2>
               <p class="points" id="team1-points">0 pontos</p>
-              <button onclick="decrementScore('team1-points')">-</button>
-              <button onclick="incrementScore('team1-points')">+</button>
+              <button onclick="decrementScore('team1')">-</button>
+              <button onclick="incrementScore('team1')">+</button>
             </div>
             <div class="team-card" id="team2" style="background-color: #57ff57">
               <h2>Energia Verde</h2>
               <p class="points" id="team2-points">0 pontos</p>
-              <button onclick="decrementScore('team2-points')">-</button>
-              <button onclick="incrementScore('team2-points')">+</button>
+              <button onclick="decrementScore('team2')">-</button>
+              <button onclick="incrementScore('team2')">+</button>
             </div>
             <div class="team-card" id="team3" style="background-color: #57d3ff">
               <h2>Super Nutritivos</h2>
               <p class="points" id="team3-points">0 pontos</p>
-              <button onclick="decrementScore('team3-points')">-</button>
-              <button onclick="incrementScore('team3-points')">+</button>
+              <button onclick="decrementScore('team3')">-</button>
+              <button onclick="incrementScore('team3')">+</button>
             </div>
             <div class="team-card" id="team4" style="background-color: #ff5757">
               <h2>Vitaminados</h2>
               <p class="points" id="team4-points">0 pontos</p>
-              <button onclick="decrementScore('team4-points')">-</button>
-              <button onclick="incrementScore('team4-points')">+</button>
+              <button onclick="decrementScore('team4')">-</button>
+              <button onclick="incrementScore('team4')">+</button>
             </div>
+          </div>
+          <div class="scoreboard">
+            <p class="equipes">
+              <strong>Equipe Sabores da Natureza:</strong> Celebrando os diferentes
+              sabores e aromas naturais dos alimentos.
+            </p>
+            <p class="equipes">
+              <strong>Equipe Energia Verde:</strong> Associada à saúde e
+              sustentabilidade, com foco em alimentos naturais e energéticos.
+            </p>
+            <p class="equipes">
+              <strong>Equipe Super Nutritivos:</strong> Inspirada nos benefícios
+              nutritivos de cada alimento.
+            </p>
+            <p class="equipes">
+              <strong>Equipe Vitaminados:</strong> Focando nas vitaminas presentes
+              nas frutas e legumes.
+            </p>
           </div>
         </div>
 
         <div class="counter">
-          <h2>Tempo para Resposta</h2>
+          <h2>Temporizador</h2>
           <div id="timer-card" class="timer-card">
             <p id="timer-message" class="timer-message">Pressione Iniciar</p>
             <button id="resetButton" onclick="resetTimer()" disabled>
@@ -67,28 +85,17 @@
             <button id="startButton" onclick="startTimer()">Iniciar</button>
           </div>
 
+          <!-- Card para controle de rodadas -->
+          <div class="team-card">
+            <p class="points" id="current-round"></p>
+            <h2 id="total-rounds"></h2>
+            <button onclick="decrementRounds()">-</button>
+            <button onclick="incrementRounds()">+</button>
+          </div>
           <div class="qrcode">
             <img src="../static/img/qrcode.png" alt="QR Code" width="200" />
           </div>
         </div>
-      </div>
-      <div class="game-container">
-        <p class="equipes">
-          <strong>Equipe Sabores da Natureza:</strong> Celebrando os diferentes
-          sabores e aromas naturais dos alimentos.
-        </p>
-        <p class="equipes">
-          <strong>Equipe Energia Verde:</strong> Associada à saúde e
-          sustentabilidade, com foco em alimentos naturais e energéticos.
-        </p>
-        <p class="equipes">
-          <strong>Equipe Super Nutritivos:</strong> Inspirada nos benefícios
-          nutritivos de cada alimento.
-        </p>
-        <p class="equipes">
-          <strong>Equipe Vitaminados:</strong> Focando nas vitaminas presentes
-          nas frutas e legumes.
-        </p>
       </div>
     </div>
   </body>

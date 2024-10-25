@@ -27,6 +27,8 @@ const startTimerSound = new Audio("../static/audio/20-seconds.mp3"); // Arquivo 
 const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo de áudio da contagem regressiva
 
 function startTimer() {
+  let playAlarmSound
+
   clearInterval(countdown);
   clearInterval(startGame);
   timeLeft = 20;
@@ -78,17 +80,26 @@ function startTimer() {
           countdownSound.pause();
           countdownSound.currentTime = 0; // Reiniciar o som
           // Tocar o som quando o tempo acabar
-          alarmSound.play();
+          playAlarmSound = alarmSound.play();
 
           document.getElementById("timer").classList.remove("timer-final");
           document.getElementById("timer").classList.add("timer-alert");
           document.getElementById("timer").innerText = "Fale Agora!";
         }
 
-        if (totalTime <= 7) {
-          // Parar o som se estiver tocando
-          alarmSound.pause();
-          alarmSound.currentTime = 0; // Reiniciar o som
+        if (totalTime <= 6) {
+          if (playAlarmSound !== undefined) {
+            playAlarmSound
+              .then((_) => {
+                // Parar o som se estiver tocando
+                alarmSound.pause();
+                alarmSound.currentTime = 0; // Reiniciar o som
+              })
+              .catch((error) => {
+                // Auto-play was prevented
+                // Show paused UI.
+              });
+          }
         }
 
         if (totalTime <= 0) {
@@ -102,8 +113,9 @@ function startTimer() {
 function resetTimer() {
   clearInterval(countdown);
   clearInterval(startGame);
-  timeLeft = 20;
   timeStartGame = 3;
+  timeLeft = 20;
+  totalTime = 30;
 
   document.getElementById("timer").classList.remove("timer-final");
   document.getElementById("timer").classList.remove("timer-start");

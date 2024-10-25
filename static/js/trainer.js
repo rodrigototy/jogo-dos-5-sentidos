@@ -6,13 +6,18 @@ const resetButton = document.getElementById("resetButton");
 const currentRoundText = document.getElementById("current-round");
 const totalRoundText = document.getElementById("total-rounds");
 
-const teams = ["Sabores da Natureza", "Energia Verde", "Super Nutritivos", "Vitaminados"];
+const teams = [
+  { teamId: "team1", teamName: "Sabores da Natureza", teamScore: 0 },
+  { teamId: "team2", teamName: "Energia Verde", teamScore: 0 },
+  { teamId: "team3", teamName: "Super Nutritivos", teamScore: 0 },
+  { teamId: "team4", teamName: "Vitaminados", teamScore: 0 },
+];
 
 const alarmSound = new Audio("../static/audio/sirene.mp3"); // Arquivo de áudio do alarme
 const startTimerSound = new Audio("../static/audio/20-seconds.mp3"); // Arquivo de áudio do alarme
 const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo de áudio da contagem regressiva
 
-const constTimeStartGame = 30;
+const constTimeStartGame = 26;
 const constTimeLeft = 20;
 const constMessageReady = "Preparado?";
 const constMaxTotalRounds = 48;
@@ -27,16 +32,13 @@ let indexRounds = 3;
 let totalRounds = 0;
 let currentRound = 0;
 let maximumPointsTeam = 0;
-
-// Variáveis para armazenar a pontuação das equipes
-let team1Score = 0;
-let team2Score = 0;
-let team3Score = 0;
-let team4Score = 0;
+let currentTeam;
 
 function selectTeamForGame() {
-  const currentTeam = teams[(currentRound - 1) % teams.length]; // Seleciona o time com base na rodada atual
-  alert(`Olá ${currentTeam}, vamos jogar?`); // Exibe uma caixa de texto simples com o nome do time
+  // Seleciona o time com base na rodada atual
+  const indexTeam = (currentRound - 1) % teams.length;
+  currentTeam = teams[indexTeam];
+  alert(`Olá ${currentTeam.teamName}, vamos jogar?`); // Exibe uma caixa de texto simples com o nome do time
 }
 
 function incrementRounds() {
@@ -74,60 +76,18 @@ window.onload = function () {
 
 // Controle do placar
 function incrementScore(teamId) {
-  switch (teamId) {
-    case "team1":
-      if (team1Score < maximumPointsTeam) {
-        team1Score += constScorePoints;
-        updateScoreDisplay("team1", team1Score);
-      }
-      break;
-    case "team2":
-      if (team2Score < maximumPointsTeam) {
-        team2Score += constScorePoints;
-        updateScoreDisplay("team2", team2Score);
-      }
-      break;
-    case "team3":
-      if (team3Score < maximumPointsTeam) {
-        team3Score += constScorePoints;
-        updateScoreDisplay("team3", team3Score);
-      }
-      break;
-    case "team4":
-      if (team4Score < maximumPointsTeam) {
-        team4Score += constScorePoints;
-        updateScoreDisplay("team4", team4Score);
-      }
-      break;
+  const team = teams.find((t) => t.teamId === teamId);
+  if (team && team.teamScore < maximumPointsTeam) {
+    team.teamScore += constScorePoints;
+    updateScoreDisplay(teamId, team.teamScore);
   }
 }
 
 function decrementScore(teamId) {
-  switch (teamId) {
-    case "team1":
-      if (team1Score > 0) {
-        team1Score -= constScorePoints;
-        updateScoreDisplay("team1", team1Score);
-      }
-      break;
-    case "team2":
-      if (team2Score > 0) {
-        team2Score -= constScorePoints;
-        updateScoreDisplay("team2", team2Score);
-      }
-      break;
-    case "team3":
-      if (team3Score > 0) {
-        team3Score -= constScorePoints;
-        updateScoreDisplay("team3", team3Score);
-      }
-      break;
-    case "team4":
-      if (team4Score > 0) {
-        team4Score -= constScorePoints;
-        updateScoreDisplay("team4", team4Score);
-      }
-      break;
+  const team = teams.find((t) => t.teamId === teamId);
+  if (team && team.teamScore > 0) {
+    team.teamScore -= constScorePoints;
+    updateScoreDisplay(teamId, team.teamScore);
   }
 }
 
@@ -139,6 +99,7 @@ function updateScoreDisplay(teamId, score) {
 // Timer e outras funções permanecem iguais
 function startTimer() {
   let playAlarmSound;
+  let respostaTeam;
 
   clearInterval(startGame);
   timeStartGame = constTimeStartGame;
@@ -150,7 +111,7 @@ function startTimer() {
   // Inicializa o temporizador
   timerText.innerText = constMessageReady;
   startNextRound();
-   // Chama a função para exibir o time atual
+  // Chama a função para exibir o time atual
   selectTeamForGame();
   startTimerSound.play();
 
@@ -158,7 +119,7 @@ function startTimer() {
   startGame = setInterval(function () {
     timeStartGame--;
 
-    if (timeStartGame <= 27) {
+    if (timeStartGame <= 23) {
       timerText.innerText = `${timeLeft}s`;
       timerText.classList.remove("timer-final");
       timerText.classList.remove("timer-message");
@@ -166,27 +127,27 @@ function startTimer() {
       timerText.classList.add("timer-start");
     }
 
-    if (timeStartGame <= 26) {
+    if (timeStartGame <= 22) {
       // Iniciar o countdown após timeStartGame acabar
       timeLeft--;
       timerText.innerText = `${timeLeft}s`;
 
-      if (timeStartGame <= 19) {
+      if (timeStartGame <= 15) {
         countdownSound.play();
       }
 
-      if (timeStartGame <= 18) {
+      if (timeStartGame <= 14) {
         startTimerSound.pause();
         startTimerSound.currentTime = 0; // Reiniciar o som
       }
 
-      if (timeStartGame <= 17) {
+      if (timeStartGame <= 13) {
         timerText.classList.remove("timer-start");
         timerText.classList.add("timer-final");
         timerCard.classList.add("timer-back-alert");
       }
 
-      if (timeStartGame <= 7) {
+      if (timeStartGame <= 3) {
         countdownSound.pause();
         countdownSound.currentTime = 0; // Reiniciar o som
         // Tocar o som quando o tempo acabar
@@ -197,7 +158,7 @@ function startTimer() {
         timerText.innerText = "Fale Agora!";
       }
 
-      if (timeStartGame <= 4) {
+      if (timeStartGame <= 0) {
         if (playAlarmSound !== undefined) {
           playAlarmSound
             .then((_) => {
@@ -210,9 +171,10 @@ function startTimer() {
               // Show paused UI.
             });
         }
-      }
-
-      if (timeStartGame <= 0) {
+        respostaTeam = confirm("A resposta foi correta?");
+        if (respostaTeam) {
+          incrementScore(currentTeam.teamId);
+        }
         resetTimer();
       }
     }

@@ -7,9 +7,11 @@
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../static/styles/reset.css" />
     <link rel="stylesheet" href="../static/styles/trainer.css" />
+    <link rel="stylesheet" href="../static/styles/timer-dialog.css" />
     <link rel="stylesheet" href="../static/styles/no-yes-dialog.css" />
     <link rel="stylesheet" href="../static/styles/ranking-dialog.css" />
     <script src="../static/js/trainer.js" defer></script>
+    <script src="../static/js/timer-dialog.js" defer></script>
     <script src="../static/js/no-yes-dialog.js" defer></script>
     <script src="../static/js/ranking-dialog.js" defer></script>
   </head>
@@ -34,6 +36,13 @@
         <div class="counter">
           <h2>Placar das Equipes</h2>
           <div id="overlay"></div>
+          <div id="timer-dialog" class="timer-back-normal">
+            <p id="timer-title"></p>
+            <p id="timer-progress" class="timer-normal"></p>
+            <button id="resetButton" onclick="resetTimer()">
+              Resetar
+            </button>
+          </div>
           <div id="no-yes-dialog">
             <p>A resposta está correta?</p>
             <button class="button no" id="button-no">Não</button>
@@ -98,9 +107,7 @@
         <div class="counter">
           <h2>Painel de Controle</h2>
           <div id="timer-card" class="timer-card">
-            <p id="timer-message" class="timer-message">Pressione Iniciar</p>
-            <button id="resetButton" onclick="resetTimer()" disabled>
-              Resetar
+            <p id="timer-control" class="timer-message">Pressione Iniciar</p>
             </button>
             <button id="startButton" onclick="startTimer()">Iniciar</button>
           </div>

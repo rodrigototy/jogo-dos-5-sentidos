@@ -143,32 +143,10 @@ button:hover {
   margin: 0;
 }
 
-.timer-start {
-  color: black;
-  font-size: 72px;
-  margin: 10px 0;
-}
-
-.timer-final {
-  color: red;
-  font-size: 72px;
-  margin: 10px 0;
-}
-
 .timer-message {
   color: blue;
   font-size: x-large;
   margin: 10px 0;
-}
-
-.timer-alert {
-  color: red;
-  font-size: xx-large;
-  margin: 10px 0;
-}
-
-.timer-back-alert {
-  background-color: yellow;
 }
 
 /* QR Code (Coluna Direita) */

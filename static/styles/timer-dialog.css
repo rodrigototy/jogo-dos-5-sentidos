@@ -1,0 +1,44 @@
+/* Estilos para o timer */
+#timer-dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #333; /* Borda mais visível */
+  border-radius: 10px; /* Cantos arredondados */
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+  z-index: 1000;
+  width: 400px;
+  max-width: 90%; /* Responsivo para telas menores */
+  text-align: center;
+  font-family: Arial, sans-serif; /* Fonte mais moderna */
+}
+
+.timer-back-normal {
+  background-color: #f9f9f9; /* Fundo mais suave */
+}
+
+.timer-back-alert {
+  background-color: #ffeb3b;
+}
+
+#timer-title {
+  color: blue;
+  font-size: xx-large;
+  margin: 10px 0;
+}
+
+.timer-normal {
+  color: blue;
+}
+
+.timer-alert {
+  color: red;
+}
+
+#timer-progress {
+  font-size: 72px;
+  margin: 20px 0;
+}

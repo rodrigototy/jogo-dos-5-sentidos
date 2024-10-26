@@ -1,5 +1,5 @@
 /* Estilos para a caixa de diálogo */
-#dialog {
+#no-yes-dialog {
   display: none;
   position: fixed;
   top: 50%;
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-#dialog p {
+#no-yes-dialog p {
   margin-bottom: 15px;
 }
 

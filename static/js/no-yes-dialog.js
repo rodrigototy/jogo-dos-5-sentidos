@@ -1,31 +1,31 @@
-const dialog = document.getElementById("dialog");
+const noYesDialog = document.getElementById("no-yes-dialog");
 const overlay = document.getElementById("overlay");
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
+const buttonYes = document.getElementById("button-yes");
+const buttonNo = document.getElementById("button-no");
 
 function checkAnswer() {
   return new Promise((resolve) => {
     overlay.style.display = "block";
-    dialog.style.display = "block";
+    noYesDialog.style.display = "block";
 
-    yesBtn.addEventListener("click", function onYesClick() {
+    buttonYes.addEventListener("click", function onYesClick() {
       resolve(true); // Resolve a promise com 'true' para indicar resposta positiva
       closeDialog();
     });
 
-    noBtn.addEventListener("click", function onNoClick() {
+    buttonNo.addEventListener("click", function onNoClick() {
       resolve(false); // Resolve a promise com 'false' para indicar resposta negativa
       closeDialog();
     });
 
     function closeDialog() {
       overlay.style.display = "none";
-      dialog.style.display = "none";
+      noYesDialog.style.display = "none";
     }
 
     function cleanup() {
-      yesBtn.removeEventListener("click", onYesClick);
-      noBtn.removeEventListener("click", onNoClick);
+      buttonYes.removeEventListener("click", onYesClick);
+      buttonNo.removeEventListener("click", onNoClick);
     }
   });
 }

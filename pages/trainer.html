@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="../static/styles/reset.css" />
     <link rel="stylesheet" href="../static/styles/trainer.css" />
     <link rel="stylesheet" href="../static/styles/no-yes-dialog.css" />
+    <link rel="stylesheet" href="../static/styles/ranking-dialog.css" />
     <script src="../static/js/trainer.js" defer></script>
     <script src="../static/js/no-yes-dialog.js" defer></script>
+    <script src="../static/js/ranking-dialog.js" defer></script>
   </head>
   <body>
     <header>
@@ -32,10 +34,15 @@
         <div class="counter">
           <h2>Placar das Equipes</h2>
           <div id="overlay"></div>
-          <div id="dialog">
+          <div id="no-yes-dialog">
             <p>A resposta está correta?</p>
-            <button class="button no" id="noBtn">Não</button>
-            <button class="button yes" id="yesBtn">Sim</button>
+            <button class="button no" id="button-no">Não</button>
+            <button class="button yes" id="button-yes">Sim</button>
+          </div>
+          <div id="ranking-dialog" class="result-card">
+            <h2>Classificação Final</h2>
+            <pre id="ranking-list"></pre>
+            <button class="button" id="close-ranking">Fechar</button>
           </div>
           <div class="scoreboard">
             <div class="team-card" id="team1" style="background-color: #ffdd57">

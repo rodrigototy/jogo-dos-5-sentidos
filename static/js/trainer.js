@@ -33,13 +33,11 @@ let currentRound = 0;
 let maximumPointsTeam = 0;
 let currentTeam;
 let currentTeamMessage = "";
-let listRankingTeams = "";
 
 function selectTeamForGame() {
   // Seleciona o time com base na rodada atual
   const indexTeam = (currentRound - 1) % teams.length;
   currentTeam = teams[indexTeam];
-  console.log(currentTeam);
   currentTeamMessage = `${currentTeam.teamName}, pronto?`; // Exibe uma caixa de texto simples com o nome do time
 }
 
@@ -108,8 +106,7 @@ function startTimer() {
   timeLeft = constTimeLeft;
 
   // Desabilitar o botão Iniciar e habilitar o botão Resetar
-  startButton.disabled = true;
-  resetButton.disabled = false;
+  desabilitarIniciar ();
   // Inicializa o temporizador
   startNextRound();
   // Chama a função para exibir o time atual
@@ -179,12 +176,12 @@ function startTimer() {
           if (resolve) {
             incrementScore(currentTeam.teamId);
           }
+          if (totalRounds == currentRound) {
+            // Uso da função showRankingDialog:
+            showRankingDialog(teams).then(() => {});
+            desabilitarIniciar();
+          }
         });
-
-        if (totalRounds == currentRound) {
-          listRankingTeams = getRanking(teams);
-          console.log(listRankingTeams);
-        }
         resetTimer();
       }
     }
@@ -210,8 +207,7 @@ function resetTimer() {
   startTimerSound.pause();
   startTimerSound.currentTime = 0; // Reiniciar o som
   // Habilitar o botão Iniciar e desabilitar o botão Resetar
-  startButton.disabled = false;
-  resetButton.disabled = true;
+  habilitarIniciar();
 }
 
 function getRanking(teams) {
@@ -223,10 +219,18 @@ function getRanking(teams) {
   let indexRanking = 0;
   sortedTeams.forEach((team, index) => {
     indexRanking++;
-    rankingList += `${indexRanking}º ${index + 1} - ${team.teamName} - ${
-      team.teamScore
-    }\n`;
+    rankingList += `${indexRanking}º Lugar: ${team.teamName} - ${team.teamScore} pontos\n`;
   });
 
   return rankingList.trim(); // Remove a última nova linha
+}
+
+function desabilitarIniciar() {
+  startButton.disabled = true;
+  resetButton.disabled = false;
+}
+
+function habilitarIniciar() {
+  startButton.disabled = false;
+  resetButton.disabled = true;
 }

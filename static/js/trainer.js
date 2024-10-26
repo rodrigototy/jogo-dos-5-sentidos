@@ -34,12 +34,12 @@ let maximumPointsTeam = 0;
 let currentTeam;
 let currentTeamMessage = "";
 let listRankingTeams = "";
-let checkAnswerResult = 0;
 
 function selectTeamForGame() {
   // Seleciona o time com base na rodada atual
   const indexTeam = (currentRound - 1) % teams.length;
   currentTeam = teams[indexTeam];
+  console.log(currentTeam);
   currentTeamMessage = `${currentTeam.teamName}, pronto?`; // Exibe uma caixa de texto simples com o nome do time
 }
 
@@ -173,10 +173,14 @@ function startTimer() {
               // Show paused UI.
             });
         }
-        checkAnswer();
-        if (checkAnswerResult) {
-          incrementScore(currentTeam.teamId);
-        }
+
+        // Uso da função checkAnswer:
+        checkAnswer().then((resolve) => {
+          if (resolve) {
+            incrementScore(currentTeam.teamId);
+          }
+        });
+
         if (totalRounds == currentRound) {
           listRankingTeams = getRanking(teams);
           console.log(listRankingTeams);

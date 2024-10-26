@@ -106,7 +106,7 @@ function startTimer() {
   timeLeft = constTimeLeft;
 
   // Desabilitar o botão Iniciar e habilitar o botão Resetar
-  desabilitarIniciar ();
+  desabilitarIniciar();
   // Inicializa o temporizador
   startNextRound();
   // Chama a função para exibir o time atual
@@ -208,21 +208,6 @@ function resetTimer() {
   startTimerSound.currentTime = 0; // Reiniciar o som
   // Habilitar o botão Iniciar e desabilitar o botão Resetar
   habilitarIniciar();
-}
-
-function getRanking(teams) {
-  // Ordena o array em ordem decrescente com base na pontuação
-  const sortedTeams = teams.sort((a, b) => b.teamScore - a.teamScore);
-
-  // Cria a string de classificação
-  let rankingList = "";
-  let indexRanking = 0;
-  sortedTeams.forEach((team, index) => {
-    indexRanking++;
-    rankingList += `${indexRanking}º Lugar: ${team.teamName} - ${team.teamScore} pontos\n`;
-  });
-
-  return rankingList.trim(); // Remove a última nova linha
 }
 
 function desabilitarIniciar() {

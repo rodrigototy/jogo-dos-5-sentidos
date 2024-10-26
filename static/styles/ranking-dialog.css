@@ -20,7 +20,7 @@
 .result-card h2 {
   font-size: 36px;
   text-decoration: underline;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #333; /* Cor mais forte para destaque */
 }
 
@@ -46,4 +46,31 @@
 
 .result-card button:hover {
   background-color: #45a049; /* Efeito de hover */
+}
+
+#ranking-list {
+  display: flex; /* Cada item em uma nova linha */
+  flex-direction: column; /* Cada item em uma coluna */
+  gap: 10px;
+}
+
+#ranking-list span {
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+#result-item1{
+  background-color: #45a049; /* Cor de fundo dos itens */
+}
+
+#result-item2{
+  background-color: #ffeb3b; /* Cor de fundo dos itens */
+}
+
+#result-item3{
+  background-color: #ffb74d; /* Cor de fundo dos itens */
+}
+
+#result-item4{
+  background-color: #ff7961; /* Cor de fundo dos itens */
 }

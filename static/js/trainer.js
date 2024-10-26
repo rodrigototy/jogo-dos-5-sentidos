@@ -19,7 +19,6 @@ const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo
 
 const constTimeStartGame = 26;
 const constTimeLeft = 20;
-const constMessageReady = "Preparado?";
 const constMaxTotalRounds = 48;
 const constMinTotalRounds = 4;
 const constStepRoundsTeam = 4;
@@ -33,12 +32,15 @@ let totalRounds = 0;
 let currentRound = 0;
 let maximumPointsTeam = 0;
 let currentTeam;
+let currentTeamMessage = "";
+let listRankingTeams = "";
+let checkAnswerResult = 0;
 
 function selectTeamForGame() {
   // Seleciona o time com base na rodada atual
   const indexTeam = (currentRound - 1) % teams.length;
   currentTeam = teams[indexTeam];
-  alert(`Olá ${currentTeam.teamName}, vamos jogar?`); // Exibe uma caixa de texto simples com o nome do time
+  currentTeamMessage = `${currentTeam.teamName}, pronto?`; // Exibe uma caixa de texto simples com o nome do time
 }
 
 function incrementRounds() {
@@ -109,10 +111,10 @@ function startTimer() {
   startButton.disabled = true;
   resetButton.disabled = false;
   // Inicializa o temporizador
-  timerText.innerText = constMessageReady;
   startNextRound();
   // Chama a função para exibir o time atual
   selectTeamForGame();
+  timerText.innerText = currentTeamMessage;
   startTimerSound.play();
 
   // Iniciar contagem regressiva para o início do jogo
@@ -171,9 +173,13 @@ function startTimer() {
               // Show paused UI.
             });
         }
-        respostaTeam = confirm("A resposta foi correta?");
-        if (respostaTeam) {
+        checkAnswer();
+        if (checkAnswerResult) {
           incrementScore(currentTeam.teamId);
+        }
+        if (totalRounds == currentRound) {
+          listRankingTeams = getRanking(teams);
+          console.log(listRankingTeams);
         }
         resetTimer();
       }
@@ -202,4 +208,21 @@ function resetTimer() {
   // Habilitar o botão Iniciar e desabilitar o botão Resetar
   startButton.disabled = false;
   resetButton.disabled = true;
+}
+
+function getRanking(teams) {
+  // Ordena o array em ordem decrescente com base na pontuação
+  const sortedTeams = teams.sort((a, b) => b.teamScore - a.teamScore);
+
+  // Cria a string de classificação
+  let rankingList = "";
+  let indexRanking = 0;
+  sortedTeams.forEach((team, index) => {
+    indexRanking++;
+    rankingList += `${indexRanking}º ${index + 1} - ${team.teamName} - ${
+      team.teamScore
+    }\n`;
+  });
+
+  return rankingList.trim(); // Remove a última nova linha
 }

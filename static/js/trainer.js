@@ -234,3 +234,7 @@ function habilitarIniciar() {
   startButton.disabled = false;
   resetButton.disabled = true;
 }
+
+function reloadPage() {
+  location.reload();
+}

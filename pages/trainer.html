@@ -104,8 +104,16 @@
           <div class="team-card">
             <p class="points" id="current-round"></p>
             <p class="points" id="total-rounds"></p>
-            <button onclick="decrementRounds()">-</button>
-            <button onclick="incrementRounds()">+</button>
+            <div class="control-buttons">
+              <button onclick="decrementRounds()">-</button>
+              <button onclick="incrementRounds()">+</button>
+              <img
+                id="restartApp"
+                src="../static/img/restart.webp"
+                alt="Restart"
+                onclick="reloadPage()"
+              />
+            </div>
           </div>
           <div class="qrcode">
             <img src="../static/img/qrcode.png" alt="QR Code" width="200" />

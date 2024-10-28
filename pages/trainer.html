@@ -40,7 +40,10 @@
             <p id="timer-title"></p>
             <p id="timer-progress" class="timer-normal"></p>
             <button id="resetButton" onclick="resetTimer()">
-              Resetar
+              Cancelar
+            </button>
+            <button id="playButton">
+              Começar
             </button>
           </div>
           <div id="no-yes-dialog">
@@ -59,23 +62,23 @@
             <button class="button" id="close-ranking">Fechar</button>
           </div>
           <div class="scoreboard">
-            <div class="team-card" id="team2" style="background-color: #57ff57">
+            <div class="team-card" id="team1" style="background-color: #57ff57">
               <h2>Energia Verde</h2>
+              <p class="points" id="team1-points">0 pontos</p>
+              <button onclick="decrementScore('team1')">-</button>
+              <button onclick="incrementScore('team1')">+</button>
+            </div>
+            <div class="team-card" id="team2" style="background-color: #ff5757">
+              <h2>Vitaminados</h2>
               <p class="points" id="team2-points">0 pontos</p>
               <button onclick="decrementScore('team2')">-</button>
               <button onclick="incrementScore('team2')">+</button>
             </div>
-            <div class="team-card" id="team4" style="background-color: #ff5757">
-              <h2>Vitaminados</h2>
+            <div class="team-card" id="team4" style="background-color: #ffdd57">
+              <h2>Sabores da Natureza</h2>
               <p class="points" id="team4-points">0 pontos</p>
               <button onclick="decrementScore('team4')">-</button>
               <button onclick="incrementScore('team4')">+</button>
-            </div>
-            <div class="team-card" id="team1" style="background-color: #ffdd57">
-              <h2>Sabores da Natureza</h2>
-              <p class="points" id="team1-points">0 pontos</p>
-              <button onclick="decrementScore('team1')">-</button>
-              <button onclick="incrementScore('team1')">+</button>
             </div>
             <div class="team-card" id="team3" style="background-color: #57d3ff">
               <h2>Super Nutritivos</h2>

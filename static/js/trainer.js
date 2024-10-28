@@ -5,10 +5,10 @@ const currentRoundText = document.getElementById("current-round");
 const totalRoundText = document.getElementById("total-rounds");
 
 const teams = [
-  { teamId: "team1", teamName: "Sabores da Natureza", teamScore: 0 },
-  { teamId: "team2", teamName: "Energia Verde", teamScore: 0 },
+  { teamId: "team1", teamName: "Energia Verde", teamScore: 0 },
+  { teamId: "team2", teamName: "Vitaminados", teamScore: 0 },
   { teamId: "team3", teamName: "Super Nutritivos", teamScore: 0 },
-  { teamId: "team4", teamName: "Vitaminados", teamScore: 0 },
+  { teamId: "team4", teamName: "Sabores da Natureza", teamScore: 0 },
 ];
 
 const constMaxTotalRounds = 48;

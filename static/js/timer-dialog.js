@@ -1,13 +1,15 @@
 const timerTextTitle = document.getElementById("timer-title");
 const timerTextProgress = document.getElementById("timer-progress");
 const resetButton = document.getElementById("resetButton");
+const playButton = document.getElementById("playButton");
 const timerDialog = document.getElementById("timer-dialog");
 
 const alarmSound = new Audio("../static/audio/sirene.mp3"); // Arquivo de áudio do alarme
 const startTimerSound = new Audio("../static/audio/20-seconds.mp3"); // Arquivo de áudio do alarme
 const countdownSound = new Audio("../static/audio/countdown-10.mp3"); // Arquivo de áudio da contagem regressiva
 
-const constTimeStartGame = 26;
+const constTimeStartGame = 28;
+const constTimeReturnPlay = constTimeStartGame - 1;
 const constTimeLeft = 20;
 
 let startGame;
@@ -15,6 +17,7 @@ let timeStartGame;
 let timeLeft;
 let currentTeam;
 let currentTeamName = "";
+let waitingForPlay = false; // Variável de controle para evitar múltiplas execuções
 
 function selectTeamForGame() {
   // Seleciona o time com base na rodada atual
@@ -40,44 +43,53 @@ function showTimerDialog() {
   startTimerSound.play();
 
   // Iniciar contagem regressiva para o início do jogo
-  startGame = setInterval(function () {
+  startGame = setInterval(async function () {
     timeStartGame--;
 
-    if (timeStartGame <= 23) {
+    // Verifique se devemos aguardar o clique do botão e evite múltiplas execuções
+    if (timeStartGame == constTimeReturnPlay) {
+      startTimerSound.pause();
+      timeStartGame = 1000;
+      timeStartGame = await waitForPlayButton();
+    }
+
+    if (timeStartGame == 26) {
+      startTimerSound.play();
+    }
+    if (timeStartGame == 25) {
       timerTextProgress.innerText = `${timeLeft}s`;
     }
 
-    if (timeStartGame <= 22) {
+    if (timeStartGame <= 24) {
       // Iniciar o countdown após timeStartGame acabar
       timeLeft--;
       timerTextProgress.innerText = `${timeLeft}s`;
 
-      if (timeStartGame <= 15) {
+      if (timeStartGame == 17) {
         countdownSound.play();
       }
 
-      if (timeStartGame <= 14) {
+      if (timeStartGame == 11) {
         startTimerSound.pause();
         startTimerSound.currentTime = 0; // Reiniciar o som
       }
 
-      if (timeStartGame <= 13) {
+      if (timeStartGame == 15) {
         timerTextProgress.classList.remove("timer-normal");
         timerTextProgress.classList.add("timer-alert");
         timerDialog.classList.remove("timer-back-normal");
         timerDialog.classList.add("timer-back-alert");
       }
 
-      if (timeStartGame <= 3) {
+      if (timeStartGame == 4) {
         countdownSound.pause();
         countdownSound.currentTime = 0; // Reiniciar o som
         // Tocar o som quando o tempo acabar
         playAlarmSound = alarmSound.play();
-
         timerTextProgress.innerText = "Fale Agora!";
       }
 
-      if (timeStartGame <= 0) {
+      if (timeStartGame == 3) {
         timerDialog.style.display = "none";
         if (playAlarmSound !== undefined) {
           playAlarmSound
@@ -108,6 +120,17 @@ function showTimerDialog() {
     }
   }, 1000);
 }
+
+// Função que aguarda o clique no playButton
+function waitForPlayButton() {
+  return new Promise((resolve) => {
+    playButton.addEventListener("click", function onPlayClick() {
+      playButton.removeEventListener("click", onPlayClick); // Remove o listener para evitar múltiplas chamadas
+      resolve(constTimeReturnPlay); // Resolve a Promise, continuando a execução no setInterval
+    });
+  });
+}
+
 function restartGame() {
   // Resetar o jogo
   clearInterval(startGame);

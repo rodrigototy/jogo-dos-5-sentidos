@@ -69,7 +69,7 @@ function showTimerDialog() {
         countdownSound.play();
       }
 
-      if (timeStartGame == 11) {
+      if (timeStartGame == 16) {
         startTimerSound.pause();
         startTimerSound.currentTime = 0; // Reiniciar o som
       }

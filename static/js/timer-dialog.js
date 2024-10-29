@@ -174,7 +174,6 @@ function restartGame() {
   timerDialog.classList.add("timer-back-normal");
   timerTextProgress.classList.remove("timer-alert");
   timerTextProgress.classList.add("timer-message");
-  timerTextControl.innerText = "Pressione Iniciar";
   // Parar o som se estiver tocando
   alarmSound.pause();
   alarmSound.currentTime = 0; // Reiniciar o som

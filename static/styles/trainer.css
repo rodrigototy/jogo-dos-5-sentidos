@@ -220,3 +220,23 @@ button:hover {
 #team4 {
   background-color: #ffdd57;
 }
+.elapsed-time-card {
+  border: 2px solid #4caf50;
+  padding: 20px;
+  text-align: center;
+  width: 150px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 25px;
+}
+
+.elapsed-time-card .subtitle {
+  font-size: 1.2em;
+  color: #333;
+}
+
+#elapsed-time {
+  font-size: 2em;
+  color: #4caf50;
+  margin: 10px 0;
+}

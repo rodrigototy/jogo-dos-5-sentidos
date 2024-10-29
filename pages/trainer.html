@@ -121,14 +121,17 @@
             </div>
           </div>
         </div>
-
         <div class="counter">
           <p class="subtitle">Painel de Controle</p>
           <div id="timer-card" class="timer-card">
-            <p id="timer-control" class="timer-message">Iniciar Partida</p>
-            <button id="startButton" onclick="startTimer()">Iniciar</button>
+            <div class="elapsed-time-card">
+              <p class="subtitle">Tempo Decorrido</p>
+              <p id="elapsed-time">00:00</p>
+            </div>
+            <button id="startButton" onclick="startTimer()">
+              Iniciar Partida
+            </button>
           </div>
-
           <!-- Card para controle de rodadas -->
           <div class="team-card">
             <p class="points" id="current-round"></p>

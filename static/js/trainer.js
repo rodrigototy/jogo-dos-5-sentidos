@@ -1,5 +1,5 @@
 // Controle do Timer
-const timerTextControl = document.getElementById("timer-control");
+const timerTextControl = document.getElementById("elapsed-time");
 const startButton = document.getElementById("startButton");
 const currentRoundText = document.getElementById("current-round");
 const totalRoundText = document.getElementById("total-rounds");
@@ -20,6 +20,8 @@ let indexRounds = 3;
 let totalRounds = 0;
 let currentRound = 0;
 let maximumPointsTeam = 0;
+let elapsedTime = 0; // Tempo em segundos
+let timerInterval;
 
 function incrementRounds() {
   if (totalRounds < constMaxTotalRounds) {
@@ -79,8 +81,8 @@ function updateScoreDisplay(teamId, score) {
 // Timer e outras funções permanecem iguais
 function startTimer() {
   // Inicializa o temporizador
+  startElapsedTime();
   startNextRound();
-  timerTextControl.innerText = "Executando ...!";
   showTimerDialog();
 }
 
@@ -92,6 +94,23 @@ function habilitarIniciar() {
   startButton.disabled = false;
 }
 
-function reloadPage() {
-  location.reload();
+function startElapsedTime() {
+  // Verifica se o timer já está em execução
+  if (timerInterval) return;
+
+  timerInterval = setInterval(() => {
+    elapsedTime++;
+    updateElapsedTimeDisplay();
+  }, 1000);
+}
+
+function stopElapsedTime() {
+  clearInterval(timerInterval);
+  timerInterval = null; // Reinicia para permitir uma nova contagem
+}
+
+function updateElapsedTimeDisplay() {
+  const minutes = String(Math.floor(elapsedTime / 60)).padStart(2, "0");
+  const seconds = String(elapsedTime % 60).padStart(2, "0");
+  timerTextControl.textContent = `${minutes}:${seconds}`;
 }

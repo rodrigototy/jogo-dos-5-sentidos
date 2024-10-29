@@ -188,5 +188,4 @@ function restartGame() {
 function resetTimer() {
   restartGame();
   overlay.style.display = "none";
-  stopElapsedTime()
 }

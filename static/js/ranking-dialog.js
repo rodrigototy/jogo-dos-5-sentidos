@@ -15,6 +15,7 @@ function showRankingDialog(teams) {
   closeRanking.addEventListener("click", function close() {
     overlay.style.display = "none";
     rankingDialog.style.display = "none";
+    stopElapsedTime();
     closeRanking.removeEventListener("click", close);
   });
 }

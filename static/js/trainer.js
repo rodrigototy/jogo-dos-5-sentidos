@@ -16,12 +16,12 @@ const constMinTotalRounds = 4;
 const constStepRoundsTeam = 4;
 const constScorePoints = 10;
 
-let indexRounds = 3;
+let indexRounds = 5;
 let totalRounds = 0;
 let currentRound = 0;
 let maximumPointsTeam = 0;
 let elapsedTime = 0; // Tempo em segundos
-let timerInterval;
+let elapsedInterval;
 
 function incrementRounds() {
   if (totalRounds < constMaxTotalRounds) {
@@ -96,17 +96,17 @@ function habilitarIniciar() {
 
 function startElapsedTime() {
   // Verifica se o timer já está em execução
-  if (timerInterval) return;
+  if (elapsedInterval) return;
 
-  timerInterval = setInterval(() => {
+  elapsedInterval = setInterval(() => {
     elapsedTime++;
     updateElapsedTimeDisplay();
   }, 1000);
 }
 
 function stopElapsedTime() {
-  clearInterval(timerInterval);
-  timerInterval = null; // Reinicia para permitir uma nova contagem
+  clearInterval(elapsedInterval);
+  elapsedInterval = null; // Reinicia para permitir uma nova contagem
 }
 
 function updateElapsedTimeDisplay() {

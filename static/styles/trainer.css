@@ -226,17 +226,12 @@ button:hover {
   text-align: center;
   width: 150px;
   border-radius: 10px;
-  background-color: #f0f0f0;
+  background-color: rgba(94, 111, 62, 0.152);
   margin-bottom: 25px;
 }
 
-.elapsed-time-card .subtitle {
-  font-size: 1.2em;
-  color: #333;
-}
-
 #elapsed-time {
-  font-size: 2em;
+  font-size: 3rem;
   color: #4caf50;
-  margin: 10px 0;
+  margin: 5px 0;
 }

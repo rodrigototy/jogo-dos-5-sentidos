@@ -34,17 +34,15 @@
     <div class="container">
       <div class="game-container">
         <div class="counter">
-          <h2>Placar das Equipes</h2>
+          <p class="subtitle">Placar das Equipes</p>
           <div id="overlay"></div>
           <div id="timer-dialog" class="timer-back-normal">
             <p id="timer-title"></p>
             <p id="timer-progress" class="timer-normal"></p>
             <button id="resetButton" onclick="resetTimer()">
-              Cancelar
+              Pular Equipe
             </button>
-            <button id="playButton">
-              Começar
-            </button>
+            <button id="playButton">Começar</button>
           </div>
           <div id="no-yes-dialog">
             <p>A resposta está correta?</p>
@@ -62,56 +60,72 @@
             <button class="button" id="close-ranking">Fechar</button>
           </div>
           <div class="scoreboard">
-            <div class="team-card" id="team1" style="background-color: #57ff57">
-              <h2>Energia Verde</h2>
+            <div class="team-card" id="team1">
+              <p class="title-card">Energia Verde</p>
               <p class="points" id="team1-points">0 pontos</p>
               <button onclick="decrementScore('team1')">-</button>
               <button onclick="incrementScore('team1')">+</button>
             </div>
-            <div class="team-card" id="team2" style="background-color: #ff5757">
-              <h2>Vitaminados</h2>
+            <div class="team-card" id="team2">
+              <p class="title-card">Vitaminados</p>
               <p class="points" id="team2-points">0 pontos</p>
               <button onclick="decrementScore('team2')">-</button>
               <button onclick="incrementScore('team2')">+</button>
             </div>
-            <div class="team-card" id="team4" style="background-color: #ffdd57">
-              <h2>Sabores da Natureza</h2>
+            <div class="team-card" id="team4">
+              <p class="title-card">Sabores da Natureza</p>
               <p class="points" id="team4-points">0 pontos</p>
               <button onclick="decrementScore('team4')">-</button>
               <button onclick="incrementScore('team4')">+</button>
             </div>
-            <div class="team-card" id="team3" style="background-color: #57d3ff">
-              <h2>Super Nutritivos</h2>
+            <div class="team-card" id="team3">
+              <p class="title-card">Super Nutritivos</p>
               <p class="points" id="team3-points">0 pontos</p>
               <button onclick="decrementScore('team3')">-</button>
               <button onclick="incrementScore('team3')">+</button>
             </div>
           </div>
-          <div class="scoreboard">
-            <p class="equipes">
-              <input type="checkbox" id="team1-checkbox" checked />
-              <label for="team1-checkbox"><strong>Equipe Energia Verde:</strong></label> Associada à saúde e sustentabilidade, com foco em alimentos naturais e energéticos.
-            </p>
-            <p class="equipes">
-              <input type="checkbox" id="team2-checkbox" checked />
-              <label for="team2-checkbox"><strong>Equipe Vitaminados:</strong></label> Focando nas vitaminas presentes nas frutas e legumes.
-            </p>
-            <p class="equipes">
-              <input type="checkbox" id="team3-checkbox" checked />
-              <label for="team3-checkbox"><strong>Equipe Sabores da Natureza:</strong></label> Celebrando os diferentes sabores e aromas naturais dos alimentos.
-            </p>
-            <p class="equipes">
-              <input type="checkbox" id="team4-checkbox" checked />
-              <label for="team4-checkbox"><strong>Equipe Super Nutritivos:</strong></label> Inspirada nos benefícios nutritivos de cada alimento.
-            </p>
+          <div>
+            <p class="subtitle">Equipes Ativas</p>
+            <div class="equipe-card">
+              <p class="equipes">
+                <input type="checkbox" id="team1-checkbox" checked />
+                <label for="team1-checkbox"
+                  ><strong>Equipe Energia Verde:</strong></label
+                >
+                Associada à saúde e sustentabilidade, com foco em alimentos
+                naturais e energéticos.
+              </p>
+              <p class="equipes">
+                <input type="checkbox" id="team2-checkbox" checked />
+                <label for="team2-checkbox"
+                  ><strong>Equipe Vitaminados:</strong></label
+                >
+                Focando nas vitaminas presentes nas frutas e legumes.
+              </p>
+              <p class="equipes">
+                <input type="checkbox" id="team4-checkbox" checked />
+                <label for="team4-checkbox"
+                  ><strong>Equipe Sabores da Natureza:</strong></label
+                >
+                Celebrando os diferentes sabores e aromas naturais dos
+                alimentos.
+              </p>
+              <p class="equipes">
+                <input type="checkbox" id="team3-checkbox" checked />
+                <label for="team3-checkbox"
+                  ><strong>Equipe Super Nutritivos:</strong></label
+                >
+                Inspirada nos benefícios nutritivos de cada alimento.
+              </p>
+            </div>
           </div>
         </div>
 
         <div class="counter">
-          <h2>Painel de Controle</h2>
+          <p class="subtitle">Painel de Controle</p>
           <div id="timer-card" class="timer-card">
-            <p id="timer-control" class="timer-message">Pressione Iniciar</p>
-            </button>
+            <p id="timer-control" class="timer-message">Iniciar Partida</p>
             <button id="startButton" onclick="startTimer()">Iniciar</button>
           </div>
 
@@ -122,16 +136,20 @@
             <div class="control-buttons">
               <button onclick="decrementRounds()">-</button>
               <button onclick="incrementRounds()">+</button>
-              <img
-                id="restartApp"
-                src="../static/img/restart.webp"
-                alt="Restart"
-                onclick="reloadPage()"
-              />
+
+              <a href="trainer.html" class="card-link">
+                <img
+                  id="restartApp"
+                  src="../static/img/restart.webp"
+                  alt="Restart"
+              /></a>
             </div>
           </div>
           <div class="qrcode">
-            <img src="../static/img/qrcode.png" alt="QR Code" width="200" />
+            <p class="subtitle">App Alimentos</p>
+            <a href="player.html" class="card-link">
+              <img src="../static/img/qrcode.png" alt="QR Code" width="200" />
+            </a>
           </div>
         </div>
       </div>

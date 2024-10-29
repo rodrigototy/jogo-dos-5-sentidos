@@ -98,12 +98,9 @@ function showTimerDialog() {
           countdownSound.play();
         }
 
-        if (timeStartGame == 16) {
+        if (timeStartGame == 15) {
           startTimerSound.pause();
           startTimerSound.currentTime = 0; // Reiniciar o som
-        }
-
-        if (timeStartGame == 15) {
           timerTextProgress.classList.remove("timer-normal");
           timerTextProgress.classList.add("timer-alert");
           timerDialog.classList.remove("timer-back-normal");
@@ -162,7 +159,7 @@ function waitForPlayButton() {
   return new Promise((resolve) => {
     playButton.addEventListener("click", function onPlayClick() {
       playButton.removeEventListener("click", onPlayClick); // Remove o listener para evitar múltiplas chamadas
-      resolve(constTimeReturnPlay); // Resolve a Promise, continuando a execução no setInterval
+      resolve(constTimeReturnPlay - 1); // Resolve a Promise, continuando a execução no setInterval
     });
   });
 }

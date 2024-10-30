@@ -39,15 +39,15 @@
           <div id="timer-dialog" class="timer-back-normal">
             <p id="timer-title"></p>
             <p id="timer-progress" class="timer-normal"></p>
-            <button id="resetButton" onclick="resetTimer()">
+            <button class="buttonControl" id="resetButton" onclick="resetTimer()">
               Pular Equipe
             </button>
-            <button id="playButton">Começar</button>
+            <button class="buttonControl" id="playButton">Começar</button>
           </div>
           <div id="no-yes-dialog">
-            <p>A resposta está correta?</p>
-            <button class="button no" id="button-no">Não</button>
-            <button class="button yes" id="button-yes">Sim</button>
+            <p class="title-card">A resposta está correta?</p>
+            <button class="buttonOption no" id="button-no">Não</button>
+            <button class="buttonOption yes" id="button-yes">Sim</button>
           </div>
           <div id="ranking-dialog" class="result-card">
             <h2>Classificação Final</h2>
@@ -57,32 +57,32 @@
               <span id="result-item3"></span>
               <span id="result-item4"></span>
             </pre>
-            <button class="button" id="close-ranking">Fechar</button>
+            <button class="buttonControl" id="close-ranking">Fechar</button>
           </div>
           <div class="scoreboard">
             <div class="team-card" id="team1">
               <p class="title-card">Energia Verde</p>
               <p class="points" id="team1-points">0 pontos</p>
-              <button onclick="decrementScore('team1')">-</button>
-              <button onclick="incrementScore('team1')">+</button>
+              <button class="buttonAjuste" onclick="decrementScore('team1')">-</button>
+              <button class="buttonAjuste" onclick="incrementScore('team1')">+</button>
             </div>
             <div class="team-card" id="team2">
               <p class="title-card">Vitaminados</p>
               <p class="points" id="team2-points">0 pontos</p>
-              <button onclick="decrementScore('team2')">-</button>
-              <button onclick="incrementScore('team2')">+</button>
+              <button class="buttonAjuste" onclick="decrementScore('team2')">-</button>
+              <button class="buttonAjuste" onclick="incrementScore('team2')">+</button>
             </div>
             <div class="team-card" id="team4">
               <p class="title-card">Sabores da Natureza</p>
               <p class="points" id="team4-points">0 pontos</p>
-              <button onclick="decrementScore('team4')">-</button>
-              <button onclick="incrementScore('team4')">+</button>
+              <button class="buttonAjuste" onclick="decrementScore('team4')">-</button>
+              <button class="buttonAjuste" onclick="incrementScore('team4')">+</button>
             </div>
             <div class="team-card" id="team3">
               <p class="title-card">Super Nutritivos</p>
               <p class="points" id="team3-points">0 pontos</p>
-              <button onclick="decrementScore('team3')">-</button>
-              <button onclick="incrementScore('team3')">+</button>
+              <button class="buttonAjuste" onclick="decrementScore('team3')">-</button>
+              <button class="buttonAjuste" onclick="incrementScore('team3')">+</button>
             </div>
           </div>
           <div>
@@ -127,7 +127,7 @@
             <div class="elapsed-time-card">
               <p id="elapsed-time">00:00</p>
             </div>
-            <button id="startButton" onclick="startTimer()">
+            <button class="buttonControl" id="startButton" onclick="startTimer()">
               Iniciar Partida
             </button>
           </div>
@@ -136,13 +136,13 @@
             <p class="points" id="current-round"></p>
             <p class="points" id="total-rounds"></p>
             <div class="control-buttons">
-              <button onclick="decrementRounds()">-</button>
-              <button onclick="incrementRounds()">+</button>
+              <button class="buttonAjuste" onclick="decrementRounds()">-</button>
+              <button class="buttonAjuste" onclick="incrementRounds()">+</button>
 
               <a href="trainer.html" class="card-link">
                 <img
                   id="restartApp"
-                  src="../static/img/restart.webp"
+                  src="../static/img/red-reload.png"
                   alt="Restart"
               /></a>
             </div>

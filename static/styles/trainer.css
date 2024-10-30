@@ -108,9 +108,13 @@ button:hover {
   background-color: #45a049;
 }
 
-.team-card > button {
+.buttonAjuste {
   font-size: 24px;
-  padding: 10px 20px;
+  width: 48px;
+}
+
+.buttonControl {
+  font-size: 20px;
 }
 
 /* Contador (Coluna Central) */
@@ -128,12 +132,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-.timer-card h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.timer-card button {
+.timer-card button1 {
   padding: 10px 20px;
   font-size: 18px;
 }
@@ -188,14 +187,9 @@ button:hover {
   align-items: center;
 }
 
-.control-buttons > button {
-  font-size: 24px;
-  padding: 10px 20px;
-}
-
 .control-buttons img {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
   cursor: pointer;
   transition: opacity 0.3s ease; /* Suaviza a transição da opacidade */

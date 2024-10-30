@@ -23,11 +23,12 @@
   z-index: 999;
 }
 
-.button {
+.buttonOption {
   margin: 5px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  font-size: 18px;
 }
 
 #no-yes-dialog p {
